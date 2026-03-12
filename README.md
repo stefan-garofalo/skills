@@ -96,11 +96,10 @@ If you use another harness, these ideas still apply.
 
 ### Skill packaging that is Codex-specific
 
-These parts assume Codex-style skills:
+These parts are specific to Codex packaging and optional Codex runtime extras:
 
 - `SKILL.md`
 - `agents/openai.yaml`
-- installation under `~/.agents/skills`
 - optional role registration under `~/.codex/config.toml`
 - optional `sparky.toml` role config
 
@@ -169,7 +168,6 @@ These are external tools or binaries, not skills.
 
 Required or strongly expected:
 
-- Codex skills support
 - a backlog CLI or equivalent workflow
 - git
 
@@ -181,7 +179,7 @@ Optional:
 
 - repo-native hosting CLI if you want finalize/push/review automation
 
-## Install in Codex
+## Install
 
 ### Install with the `skills` CLI
 
@@ -239,20 +237,12 @@ npx skills add vercel-labs/agent-browser --skill agent-browser
 Notes:
 
 - this is explicit installation, not transitive dependency resolution
-- `spark` execution also requires the optional `sparky` role from `extras/sparky.toml`
+- `spark` execution also requires the optional `sparky` role from `extras/sparky.toml` if your host supports Codex-style roles
 - `agent-browser` here is the skill package; the `agent-browser` binary itself is still a separate tool dependency documented below
 
-### Manual Codex installation
+### Optional Codex `spark` setup
 
-Copy or symlink the skill folders into `~/.agents/skills`:
-
-```bash
-mkdir -p ~/.agents/skills
-cp -R skills/domain-plan ~/.agents/skills/
-cp -R skills/domain-execute ~/.agents/skills/
-```
-
-If you want `spark` mode, also install the optional role file:
+If you are using Codex and want `spark` mode, also install the optional role file:
 
 ```bash
 mkdir -p ~/.codex/agents
@@ -317,6 +307,6 @@ extras/
 
 - The prompt logic tries to stay host-agnostic where possible by deriving repo host context from git remotes.
 - `spark` mode is optional and Codex-specific.
-- The generic workflow is broader than Codex; the packaging in this repo is not.
+- The workflow is broader than Codex; only the `sparky` role setup is Codex-specific here.
 - `agents/openai.yaml` intentionally stays minimal. The current `skill-creator` reference documents `dependencies.tools` only for MCP entries, so binary dependencies such as `opensrc`, `agent-browser`, and `portless` are documented here in the README instead of being forced into `openai.yaml`.
 - Current `skills.sh` docs describe repo installation and per-repo skill selection, but do not document transitive dependency installation across repos. This README therefore assumes companion skills are installed separately unless they are bundled in the same repository.
