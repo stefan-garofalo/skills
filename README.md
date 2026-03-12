@@ -215,6 +215,33 @@ Important:
 
 If you want a true one-command install experience for all companion skills, they must be bundled into the same repo or published in another repo with its own explicit install command.
 
+### Copy-paste install block for the current dependency set
+
+If you want the currently documented skill set in one pass, install these skills explicitly:
+
+```bash
+# This repo
+npx skills add stefan-garofalo/skills --skill domain-plan
+npx skills add stefan-garofalo/skills --skill domain-execute
+
+# Planner / executor dependencies
+npx skills add am-will/swarms --skill swarm-planner
+npx skills add am-will/swarms --skill parallel-task
+npx skills add am-will/swarms --skill parallel-task-spark
+
+# TDD dependency
+npx skills add mattpocock/skills --skill tdd
+
+# Browser validation dependency
+npx skills add vercel-labs/agent-browser --skill agent-browser
+```
+
+Notes:
+
+- this is explicit installation, not transitive dependency resolution
+- `spark` execution also requires the optional `sparky` role from `extras/sparky.toml`
+- `agent-browser` here is the skill package; the `agent-browser` binary itself is still a separate tool dependency documented below
+
 ### Manual Codex installation
 
 Copy or symlink the skill folders into `~/.agents/skills`:
