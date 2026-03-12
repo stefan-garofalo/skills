@@ -94,17 +94,6 @@ These parts are portable to other agent systems:
 
 If you use another harness, these ideas still apply.
 
-### Skill packaging that is Codex-specific
-
-These parts are specific to Codex packaging and optional Codex runtime extras:
-
-- `SKILL.md`
-- `agents/openai.yaml`
-- optional role registration under `~/.codex/config.toml`
-- optional `sparky.toml` role config
-
-If you are not using Codex, treat these files as reference prompt specs and adapt them to your own agent framework.
-
 ### Runtime dependencies that are not specific to these two files
 
 These skills rely on a larger environment:
