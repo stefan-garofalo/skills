@@ -183,6 +183,40 @@ Optional:
 
 ## Install in Codex
 
+### Install with the `skills` CLI
+
+The `skills.sh` / Vercel skills CLI installs skills from a GitHub repository:
+
+```bash
+npx skills add stefan-garofalo/skills
+```
+
+Useful variants:
+
+```bash
+# List the skills in this repo without installing
+npx skills add stefan-garofalo/skills --list
+
+# Install all skills from this repo
+npx skills add stefan-garofalo/skills --skill '*'
+
+# Install globally for supported agents
+npx skills add stefan-garofalo/skills -g --skill '*'
+```
+
+Important:
+
+- installing `stefan-garofalo/skills` installs the skills contained in this repo
+- it does **not** automatically install companion skills from other repos just because they are mentioned in this README
+- this repo currently bundles only:
+  - `domain-plan`
+  - `domain-execute`
+- companion skills such as `$swarm-planner`, `$parallel-task`, `$parallel-task-spark`, `$tdd`, and `Agent Browser` must already exist in the host environment or be installed separately
+
+If you want a true one-command install experience for all companion skills, they must be bundled into the same repo or published in another repo with its own explicit install command.
+
+### Manual Codex installation
+
 Copy or symlink the skill folders into `~/.agents/skills`:
 
 ```bash
@@ -258,3 +292,4 @@ extras/
 - `spark` mode is optional and Codex-specific.
 - The generic workflow is broader than Codex; the packaging in this repo is not.
 - `agents/openai.yaml` intentionally stays minimal. The current `skill-creator` reference documents `dependencies.tools` only for MCP entries, so binary dependencies such as `opensrc`, `agent-browser`, and `portless` are documented here in the README instead of being forced into `openai.yaml`.
+- Current `skills.sh` docs describe repo installation and per-repo skill selection, but do not document transitive dependency installation across repos. This README therefore assumes companion skills are installed separately unless they are bundled in the same repository.
