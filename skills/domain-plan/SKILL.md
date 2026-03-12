@@ -7,6 +7,12 @@ description: Create an execution-ready domain plan and sync its tasks to a chose
 
 Create a plan first. Do not implement code in this skill.
 
+## Prerequisites
+
+- `$swarm-planner`
+- `$tdd`
+- `opensrc`
+
 ## Workflow
 
 1. Read the current repo state.

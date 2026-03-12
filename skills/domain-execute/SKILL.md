@@ -7,6 +7,14 @@ description: Execute an approved domain plan with dependency-aware swarms. Use w
 
 Execute only from an approved plan. Treat the plan as the source of truth.
 
+## Prerequisites
+
+- `$parallel-task`
+- `$parallel-task-spark`
+- `$tdd`
+- `Agent Browser`
+- optional `portless`
+
 ## Workflow
 
 1. Read the current repo and the target `*-plan.md`.

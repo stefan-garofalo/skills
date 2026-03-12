@@ -119,24 +119,57 @@ These skills rely on a larger environment:
 
 In this repo, those dependencies are documented but not bundled.
 
-## Required companion skills
+## Skill dependencies
 
-These two skills are not standalone. They expect the following companion skills to exist in the host environment:
+These two skills are not standalone.
+
+### `domain-plan`
+
+Expected companion skills:
 
 - `$swarm-planner`
+- `$tdd`
+
+Direct runtime expectation:
+
+- `opensrc` for source-aware dependency research
+
+### `domain-execute`
+
+Expected companion skills:
+
 - `$parallel-task`
 - `$parallel-task-spark`
 - `$tdd`
 - `Agent Browser`
 
-Without these, `domain-plan` and `domain-execute` are incomplete.
+Direct runtime expectations:
 
-## Required local tools
+- `agent-browser` when `review_mode` is `browser` or `mixed`
+- `portless` when worktree-based server validation is needed
+
+### Workflow dependency between the two
+
+- `domain-execute` assumes a `*-plan.md` produced in the `domain-plan` shape
+- `spark` mode additionally assumes the optional `sparky` role is installed and registered
+
+Without these skill dependencies, the two skills are incomplete.
+
+## Tool dependencies
+
+These are external tools or binaries, not skills.
+
+| Tool | Used by | Required | Why it exists | Link |
+|------|---------|----------|---------------|------|
+| `opensrc` | `domain-plan` | Yes | Reads package/repo source context before planning | https://github.com/vercel-labs/opensrc |
+| `agent-browser` | `domain-execute` | Yes for browser review modes | Validates runtime/browser behavior | https://github.com/vercel-labs/agent-browser |
+| `portless` | `domain-execute` | Optional | Avoids local port conflicts across worktrees | https://github.com/vercel-labs/portless |
+
+## Other environment dependencies
 
 Required or strongly expected:
 
 - Codex skills support
-- `opensrc`
 - a backlog CLI or equivalent workflow
 - git
 
@@ -146,7 +179,7 @@ Usually useful:
 
 Optional:
 
-- `portless` for worktree-safe server validation
+- repo-native hosting CLI if you want finalize/push/review automation
 
 ## Install in Codex
 
@@ -224,3 +257,4 @@ extras/
 - The prompt logic tries to stay host-agnostic where possible by deriving repo host context from git remotes.
 - `spark` mode is optional and Codex-specific.
 - The generic workflow is broader than Codex; the packaging in this repo is not.
+- `agents/openai.yaml` intentionally stays minimal. The current `skill-creator` reference documents `dependencies.tools` only for MCP entries, so binary dependencies such as `opensrc`, `agent-browser`, and `portless` are documented here in the README instead of being forced into `openai.yaml`.
