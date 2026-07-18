@@ -1,6 +1,6 @@
 # skills
 
-Shareable skills for governed agent workflows and human-facing writing.
+Shareable skills for governed agent workflows and general-purpose prose.
 
 This repo contains three skills:
 
@@ -71,13 +71,13 @@ Practical meaning:
 Purpose:
 
 - draft and revise human-facing prose through semantic progression
-- make every sentence contribute a necessary relation
-- preserve coherent links between adjacent sentences
-- remove repeated antithesis, epanorthosis, and other synthetic writing tics
+- make every sentence change understanding, expectation, emotion, or action
+- preserve coherent logical and narrative links
+- control repeated antithesis, epanorthosis, and synthetic writing tics
 - validate paragraphs through deletion, link, and substitution tests
 
 Practical meaning:
-`human-writing` produces coherent, high-signal prose with natural rhythm and inspectable sentence logic.
+`human-writing` produces coherent, high-signal prose across subjects, genres, and formats.
 
 ### `extras/sparky.toml`
 
@@ -279,7 +279,7 @@ Use $domain-execute to run an approved domain plan with the selected swarm execu
 Writing:
 
 ```text
-Use $human-writing to draft or revise this prose for semantic progression and natural human rhythm.
+Use $human-writing to draft or revise this prose with semantic progression and natural rhythm.
 ```
 
 ## What you will likely customize
@@ -313,6 +313,7 @@ skills/
   human-writing/
     SKILL.md
     agents/openai.yaml
+    references/semantic-progression.md
 extras/
   sparky.toml
 ```
