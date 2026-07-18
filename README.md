@@ -313,7 +313,6 @@ skills/
   human-writing/
     SKILL.md
     agents/openai.yaml
-    references/semantic-progression.md
 extras/
   sparky.toml
 ```
