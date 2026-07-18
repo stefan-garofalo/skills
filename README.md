@@ -1,11 +1,12 @@
 # skills
 
-Shareable skills for domain-scoped multi-agent planning and execution.
+Shareable skills for governed agent workflows and human-facing writing.
 
-This repo contains two skills:
+This repo contains three skills:
 
 - `domain-plan`
 - `domain-execute`
+- `human-writing`
 
 It also includes one optional Codex role file:
 
@@ -65,6 +66,19 @@ Purpose:
 Practical meaning:
 `domain-execute` turns the plan contract into governed swarm execution.
 
+### `human-writing`
+
+Purpose:
+
+- draft and revise human-facing prose through semantic progression
+- make every sentence contribute a necessary relation
+- preserve coherent links between adjacent sentences
+- remove repeated antithesis, epanorthosis, and other synthetic writing tics
+- validate paragraphs through deletion, link, and substitution tests
+
+Practical meaning:
+`human-writing` produces coherent, high-signal prose with natural rhythm and inspectable sentence logic.
+
 ### `extras/sparky.toml`
 
 Purpose:
@@ -94,9 +108,9 @@ These parts are portable to other agent systems:
 
 If you use another harness, these ideas still apply.
 
-### Runtime dependencies that are not specific to these two files
+### Runtime dependencies for planning and execution
 
-These skills rely on a larger environment:
+The planning and execution skills rely on a larger environment:
 
 - a dependency-aware planner skill
 - a dependency-aware parallel executor skill
@@ -109,7 +123,7 @@ In this repo, those dependencies are documented but not bundled.
 
 ## Skill dependencies
 
-These two skills are not standalone.
+`human-writing` is standalone. `domain-plan` and `domain-execute` rely on companion skills and tools.
 
 ### `domain-plan`
 
@@ -198,6 +212,7 @@ Important:
 - this repo currently bundles only:
   - `domain-plan`
   - `domain-execute`
+  - `human-writing`
 - companion skills such as `$swarm-planner`, `$parallel-task`, `$parallel-task-spark`, `$tdd`, and `Agent Browser` must already exist in the host environment or be installed separately
 
 If you want a true one-command install experience for all companion skills, they must be bundled into the same repo or published in another repo with its own explicit install command.
@@ -210,6 +225,7 @@ If you want the currently documented skill set in one pass, install these skills
 # This repo
 npx skills add stefan-garofalo/skills --skill domain-plan
 npx skills add stefan-garofalo/skills --skill domain-execute
+npx skills add stefan-garofalo/skills --skill human-writing
 
 # Planner / executor dependencies
 npx skills add am-will/swarms --skill swarm-planner
@@ -260,6 +276,12 @@ Execution:
 Use $domain-execute to run an approved domain plan with the selected swarm executor.
 ```
 
+Writing:
+
+```text
+Use $human-writing to draft or revise this prose for semantic progression and natural human rhythm.
+```
+
 ## What you will likely customize
 
 Most adopters will need to adapt:
@@ -286,6 +308,9 @@ skills/
     SKILL.md
     agents/openai.yaml
   domain-execute/
+    SKILL.md
+    agents/openai.yaml
+  human-writing/
     SKILL.md
     agents/openai.yaml
 extras/

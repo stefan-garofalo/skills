@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human Writing"
+  short_description: "Write coherent, high-signal human prose"
+  default_prompt: "Use $human-writing to draft or revise this prose for semantic progression and natural human rhythm."
