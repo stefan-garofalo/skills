@@ -2,11 +2,12 @@
 
 Shareable skills for governed agent workflows and general-purpose prose.
 
-This repo contains three skills:
+This repo contains four skills:
 
 - `domain-plan`
 - `domain-execute`
 - `human-writing`
+- `technical-writing`
 
 It also includes one optional Codex role file:
 
@@ -79,6 +80,18 @@ Purpose:
 Practical meaning:
 `human-writing` produces coherent, high-signal prose across subjects, genres, and formats.
 
+### `technical-writing`
+
+Purpose:
+
+- define a reader contract and bounded claim
+- structure the problem, mechanism, examples, tradeoffs, and publish packet
+- gate each stage through explicit artifacts and evidence
+- apply `human-writing` to every prose artifact
+
+Practical meaning:
+`technical-writing` turns a technical claim into a publication-ready article with content and prose gates.
+
 ### `extras/sparky.toml`
 
 Purpose:
@@ -123,7 +136,13 @@ In this repo, those dependencies are documented but not bundled.
 
 ## Skill dependencies
 
-`human-writing` is standalone. `domain-plan` and `domain-execute` rely on companion skills and tools.
+`human-writing` is standalone. `technical-writing` composes the bundled `human-writing` skill. `domain-plan` and `domain-execute` rely on companion skills and tools.
+
+### `technical-writing`
+
+Required companion skill:
+
+- `$human-writing` (bundled in this repo)
 
 ### `domain-plan`
 
@@ -213,6 +232,7 @@ Important:
   - `domain-plan`
   - `domain-execute`
   - `human-writing`
+  - `technical-writing`
 - companion skills such as `$swarm-planner`, `$parallel-task`, `$parallel-task-spark`, `$tdd`, and `Agent Browser` must already exist in the host environment or be installed separately
 
 If you want a true one-command install experience for all companion skills, they must be bundled into the same repo or published in another repo with its own explicit install command.
@@ -226,6 +246,7 @@ If you want the currently documented skill set in one pass, install these skills
 npx skills add stefan-garofalo/skills --skill domain-plan
 npx skills add stefan-garofalo/skills --skill domain-execute
 npx skills add stefan-garofalo/skills --skill human-writing
+npx skills add stefan-garofalo/skills --skill technical-writing
 
 # Planner / executor dependencies
 npx skills add am-will/swarms --skill swarm-planner
@@ -276,10 +297,16 @@ Execution:
 Use $domain-execute to run an approved domain plan with the selected swarm executor.
 ```
 
-Writing:
+Human writing:
 
 ```text
 Use $human-writing to draft or revise this prose with semantic progression and natural rhythm.
+```
+
+Technical writing:
+
+```text
+Use $technical-writing to produce a publication-ready technical explanation.
 ```
 
 ## What you will likely customize
@@ -311,6 +338,9 @@ skills/
     SKILL.md
     agents/openai.yaml
   human-writing/
+    SKILL.md
+    agents/openai.yaml
+  technical-writing/
     SKILL.md
     agents/openai.yaml
 extras/
