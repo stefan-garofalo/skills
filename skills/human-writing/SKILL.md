@@ -10,9 +10,9 @@ Use **semantic progression**: every sentence changes the reader's understanding,
 ## Work
 
 1. Give each section and paragraph one reader-facing job.
-2. Build a dependency chain from ideas, observations, images, evidence, and consequences.
+2. Build a dependency chain from a known subject to its concrete action, the relevant information, and the resulting consequence; add observations, images, and evidence where the chain requires them.
 3. Open with the claim, event, image, or pressure point that starts the chain.
-4. Assign each sentence or clause one role: definition; cause, motive, mechanism, or relationship; evidence, detail, image, or example; consequence, realization, or change; boundary, qualification, or contrast; movement in argument, scene, or action.
+4. Assign each sentence or clause one role: definition; cause, motive, mechanism, or relationship; evidence, detail, image, or concrete example; consequence, realization, or change; boundary, qualification, or contrast; movement in argument, scene, or action.
 5. Build paragraphs as unfolding arguments, scenes, or movements. Make sentence relationships explicit; useful claims can still lack progression.
 6. Use compound or complex sentences when conjunctions make cause, consequence, condition, concession, sequence, contrast, or qualification explicit. Let logic set sentence boundaries.
 7. Keep terms stable for stable subjects; change them with meaning. Prefer verbs that expose action.
@@ -23,6 +23,8 @@ Use **semantic progression**: every sentence changes the reader's understanding,
 
 - **Deletion:** Remove the sentence. Keep it only when its loss materially changes understanding, expectation, emotion, or action.
 - **Link:** Name the relationship between adjacent sentences: definition, elaboration, sequence, cause, motive, evidence, consequence, boundary, contrast, or action. Repair unsupported jumps.
+- **Referent:** Identify the concrete actor, artifact, or event behind each subject and why it enters at that point. Ground each abstraction in that referent.
+- **Demonstration:** Replace commentary about an example's role or generality with the event, mechanism, and consequence that demonstrate them.
 - **Substitution:** Replace the subject with an unrelated one. Rewrite language that still fits any topic.
 
 Compress after the logic holds.
@@ -42,11 +44,11 @@ Use a rhetorical question only when its answer opens necessary reasoning. State 
 
 Disconnected:
 
-> The archive was incomplete. Its dates conflicted. The claim remained unverifiable.
+> The archivist found no deployment logs. The remaining timestamps conflicted. She could not verify the release claim.
 
 Connected:
 
-> Because the archive was incomplete and its dates conflicted, the claim remained unverifiable.
+> Because the archivist found no deployment logs and the remaining timestamps conflicted, she could not verify the release claim.
 
 ## Completion gate
 
@@ -57,6 +59,6 @@ Finish only when:
 - every sentence has a unique function
 - every adjacent sentence pair has a defensible relationship
 - every remaining sentence survives the deletion test
-- terminology and subjects remain stable
+- the Referent audit passes for every subject, and terminology remains stable
 - antithesis and epanorthosis do not repeat as connective structure
-- the final sentence fulfills the paragraph's job
+- the piece ends with its strongest supported claim or consequence, stated once, and fulfills the final paragraph's job
