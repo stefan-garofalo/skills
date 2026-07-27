@@ -5,160 +5,68 @@ description: Plan technical articles, draft technical explanations and tutorials
 
 # Technical Writing
 
-Governing model: **reader + gap + claim + evidence + payoff**.
-Execution order: **promise -> context -> mechanism -> example -> tradeoff -> takeaway**.
+Build every artifact around **reader + gap + claim + evidence + payoff**.
 
-## Composition
+## Governing composition rule
 
-Apply `$human-writing` to every artifact containing clauses, sentences, or paragraphs. Invoke it before drafting or revision, then rerun its necessity audit after technical edits.
+Apply `$human-writing` before drafting or revision, then rerun its necessity audit after the technical content is final. Let semantic progression and the deletion test override every outline, stage, template, and checklist in this skill. Adapt, merge, reorder, or omit any element that does not advance the reader's understanding; never retain prose merely to satisfy a form.
 
-Composition Gate
-- Pass only if every prose artifact passes `$human-writing`'s completion gate after its technical content is final.
-- Pass only if every technical explanation is plain:
-  - Name the concrete thing, what it does, and what changes.
-  - Use words the reader already knows. Keep an exact technical name only when the reader must recognize or use it. Define that name at first use by saying what it does.
-  - Let each sentence explain one step. Keep related ideas together when splitting them would hide their link. Start a new sentence when the explanation moves on.
-  - Keep each claim about how something works within inspected code, documentation, data, or observed output. Mark anything beyond that as uncertain and name the check that would settle it.
+Make technical explanations plain and connected:
 
-## Compact workflow
+- Name the concrete thing, its responsibility, and what changes.
+- Use familiar words, and define an exact technical term at first use by explaining what it does.
+- Give each sentence or clause one coherent explanatory move. Join related moves when conjunctions expose cause, condition, consequence, sequence, contrast, or qualification; split them when the explanation changes subject or job.
+- Keep terms stable for stable subjects, especially across diagrams, examples, and prose.
+- Support claims about behavior with inspected code, documentation, data, or observed output. Bound uncertain claims and name the check that would settle them.
 
-Start from the earliest missing artifact required. Preserve approved artifacts unless inconsistent.
-Stop when the user-requested deliverable is ready.
-Each stage has an `Artifact` and a `Gate`. Advance only after that Gate and the Composition Gate pass.
+## Diagnostic workflow
 
-## Stage 1 - Reader contract
+Use these passes as defaults, not as a mandatory article shape. Start where the artifact is weak, preserve approved material unless it conflicts with the claim or evidence, and stop when the requested deliverable is ready.
 
-Artifact
-- Reader clause: define reader role and decision horizon.
-- Prior actions: list what the reader already did and already knows.
-- Exactly one confusion: include one unanswered confusion sentence only.
-- Changed understanding/action: one concrete action the reader can now take.
-- Promise: resolve the gap without stating mechanism.
+### Reader and claim
 
-Gate
-- Pass only if all five bullets exist, only one confusion sentence is present, and the promise resolves that one gap without naming the mechanism.
+- Identify the reader, relevant prior knowledge, unresolved gap, claim, and payoff.
+- Bound the claim by the people, conditions, and systems to which it applies.
+- Introduce a foundational premise or scope boundary when the reader first needs it to interpret what follows; do not defer it to a generic boundary section.
+- Identify what evidence would support the claim and what evidence could change it.
 
-## Stage 2 - Claim card
+### Structure
 
-Artifact
-- Topic.
-- Contestable position-taking claim.
-- Testable `when` + `who` boundary.
-- Decision payoff.
-- Title that encodes claim and tension.
-- Dissenter path: one type of persuasive evidence a skeptic would require.
+- Arrange sections by conceptual dependency, so each section answers the question created by the preceding one.
+- Use `promise -> context -> mechanism -> example -> tradeoff -> takeaway` only as a diagnostic sequence. Reorder, combine, or omit moves according to the genre and argument.
+- Give each section one reader-facing job, while allowing that job to require several connected paragraphs.
+- For revisions, preserve the intended meaning unless the evidence or user explicitly requires a change.
 
-Gate
-- Pass only if claim is testable, bounded, and directly tied to a decision.
-- Pass only if the title expresses both claim and tension.
-- Pass only if the dissenter path names evidence that would change the claim.
+### Mechanism
 
-## Stage 3 - Problem frame (120-170 words)
+- Explain the starting state, the relevant parts, what each part owns, how the parts interact, and the resulting state or capability.
+- For a multi-part mechanism, map every part to its responsibility, inputs, operation, and outputs, then make the causal links between parts explicit.
+- Distinguish concepts that can vary independently, such as execution state, domain outcome, evidence, and route, instead of overloading one term.
+- Include only the before-and-after detail needed to establish why the result follows.
 
-Artifact moves
-- Neutral opening on familiar practice.
-- Why this practice is reasonable.
-- First observable failure.
-- One concrete cost question.
-- No solution language.
+### Evidence and examples
 
-Gate
-- Pass only if moves are exactly in this order and no solution language exists:
-  1) familiar practice, 2) reason it is reasonable, 3) first observable failure, 4) one concrete cost question.
-- Pass only if word count is between 120 and 170.
+- Use the minimum examples needed to resolve the reader's gap, and attach each example to the claim it demonstrates.
+- Distinguish observed evidence from a hypothetical derivation. Call a result an observation only when it was executed, measured, or recorded; otherwise label it as a prediction, trace, or scenario.
+- Use baseline/change/prediction/observation structure only for a real comparison or experiment.
+- Add a transfer case only when the article makes a generalization claim, and either support that transfer with evidence or narrow the claim.
+- Remove examples that merely restate the mechanism or leave the demonstrated outcome unchanged.
 
-## Stage 4 - Spine
+### Decisions and endings
 
-Artifact
-- Context.
-- Tension.
-- Mechanism.
-- Example.
-- Boundary.
-- Decision/takeaway.
-- One job sentence each, all explicitly supporting the claim.
+- Include benefits, costs, exceptions, decision rules, questions, exercises, and next actions only when the reader's decision or the requested genre requires them and the available evidence supports them.
+- Never invent a cost, exception, timing heuristic, rhetorical question, exercise, or call to action to fill a template.
+- Let the conclusion fulfill the argument: resolve the opening gap, state the bounded implication, or identify a genuine next decision. Do not require an action paragraph.
 
-Gate
-- Pass only if all six elements are present and exactly in order.
-- Pass only if each heading carries one job that answers a new reader question and directly supports the claim.
+## Completion gate
 
-## Stage 5 - Mechanism
+Finish only when:
 
-Artifact
-- Familiar anchor.
-- Preserved behavior.
-- Exactly one changed operation.
-- Capability gained.
-- Boundary statement.
-- Causal before/after explanation with stable terms.
-
-Gate
-- Pass only if stable terminology is used throughout.
-- Pass only if exactly one changed operation is defined.
-- Pass only if causal capability is explicit from before to after.
-- Pass only if boundary is explicit.
-- Pass only if the mechanism is no longer than 250 words.
-
-## Stage 6 - Three progressive examples
-
-Artifact
-- Build exactly three examples.
-- For each example:
-  - Baseline.
-  - one change.
-  - prediction made before observation.
-  - observation.
-  - explanation tied to the changed variable.
-- Change one variable from that example's baseline.
-- In the third example, use a neutral second variable for transfer.
-- Record whether transfer holds or fails.
-
-Gate
-- Pass only if exactly three examples exist.
-- Pass only if every example has all five slots in order.
-- Pass only if each example changes exactly one variable from its baseline.
-- Pass only if each example makes prediction before observation.
-- Pass only if each explanation is explicitly tied to that example's changed variable.
-- Pass only if the third example uses a neutral second variable transfer check and records hold/fail explicitly.
-
-## Stage 7 - Tradeoffs
-
-Artifact
-- For each recommendation: trigger, benefit, cost, exception, sub-minute rule.
-- Benefit+cost must be present per recommendation.
-
-Gate
-- Pass only if each recommendation has trigger, benefit, cost, concrete exception, and sub-minute decision rule.
-- Temporary uncertainty markers must be resolved before publication.
-- Genuine uncertainty is allowed when explicitly stated with scope and test.
-- Pass only if exception and rule are concrete and bounded.
-
-## Stage 8 - Clarity
-
-Artifact
-- Assign exactly one job to each section; split any section carrying two jobs.
-- Add temporary confidence labels to sentences during the edit.
-- Delete sentences that do not advance their section job.
-- Keep each concrete example attached to the claim it clarifies.
-- Compare old and new wording to preserve meaning.
-- Remove all temporary confidence labels.
-
-Gate
-- Pass only if every section has one job.
-- Pass only if every remaining sentence advances that section's job.
-- Require at least one justified deletion unless every sentence independently passed the job test.
-- Pass only if examples remain attached, meaning is preserved, and temporary labels are gone.
-
-## Stage 9 - Publish packet
-
-Artifact
-- Title with claim/tension.
-- One-line pitch tied to reader relevance.
-- Final compress-and-transfer paragraph with action.
-- Checklist: reader need, claim consistency, bounded evidence, explicit boundary.
-
-Decision rule
-- If evidence/boundary fails, keep as draft and do not claim completion.
-
-Gate
-- Pass only if publish packet is self-consistent and all checklist items pass.
+- the reader, gap, claim, evidence, and payoff agree
+- the claim's scope and foundational premises appear before dependent reasoning
+- each mechanism part has a clear responsibility and causal relationship
+- evidence supports the claims made, while uncertainty and hypothetical material are labeled
+- examples are necessary, honest about their status, and attached to the claims they clarify
+- terminology remains stable and distinctions remain precise
+- every section and paragraph passes `$human-writing`'s semantic progression and necessity audits
+- the ending completes the argument without adding a new premise or a template-driven action
