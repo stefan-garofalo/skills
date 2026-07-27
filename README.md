@@ -2,12 +2,13 @@
 
 Shareable skills for governed agent workflows and general-purpose prose.
 
-This repo contains four skills:
+This repo contains five skills:
 
 - `domain-plan`
 - `domain-execute`
 - `human-writing`
 - `technical-writing`
+- `write-graph-based-skills`
 
 It also includes one optional Codex role file:
 
@@ -92,6 +93,19 @@ Purpose:
 Practical meaning:
 `technical-writing` turns a technical claim into a publication-ready article with content and prose gates.
 
+### `write-graph-based-skills`
+
+Purpose:
+
+- make a Durable Workflow Graph the default architecture for multi-step skills
+- define explicit topology, state guards, and actor-like gate boundaries
+- persist phase-scoped handoffs that support cold resume and repair cycles
+- keep suggested routes advisory while terminal guards control completion
+- generate progressively disclosed skill packages with one router and bounded gate files
+
+Practical meaning:
+`write-graph-based-skills` turns a multi-step skill into a guarded, resumable workflow whose final state accounts for every mandatory obligation.
+
 ### `extras/sparky.toml`
 
 Purpose:
@@ -136,7 +150,7 @@ In this repo, those dependencies are documented but not bundled.
 
 ## Skill dependencies
 
-`human-writing` is standalone. `technical-writing` composes the bundled `human-writing` skill. `domain-plan` and `domain-execute` rely on companion skills and tools.
+`human-writing` and `write-graph-based-skills` are standalone. `technical-writing` composes the bundled `human-writing` skill. `domain-plan` and `domain-execute` rely on companion skills and tools.
 
 ### `technical-writing`
 
@@ -222,6 +236,9 @@ npx skills add stefan-garofalo/skills --skill '*'
 
 # Install globally for supported agents
 npx skills add stefan-garofalo/skills -g --skill '*'
+
+# Install the Durable Workflow Graph authoring skill globally for Codex and Claude Code
+npx skills add stefan-garofalo/skills -g -a codex -a claude-code --skill write-graph-based-skills -y
 ```
 
 Important:
@@ -233,6 +250,7 @@ Important:
   - `domain-execute`
   - `human-writing`
   - `technical-writing`
+  - `write-graph-based-skills`
 - companion skills such as `$swarm-planner`, `$parallel-task`, `$parallel-task-spark`, `$tdd`, and `Agent Browser` must already exist in the host environment or be installed separately
 
 If you want a true one-command install experience for all companion skills, they must be bundled into the same repo or published in another repo with its own explicit install command.
@@ -247,6 +265,7 @@ npx skills add stefan-garofalo/skills --skill domain-plan
 npx skills add stefan-garofalo/skills --skill domain-execute
 npx skills add stefan-garofalo/skills --skill human-writing
 npx skills add stefan-garofalo/skills --skill technical-writing
+npx skills add stefan-garofalo/skills --skill write-graph-based-skills
 
 # Planner / executor dependencies
 npx skills add am-will/swarms --skill swarm-planner
