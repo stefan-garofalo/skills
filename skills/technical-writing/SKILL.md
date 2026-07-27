@@ -14,6 +14,11 @@ Apply `$human-writing` to every artifact containing clauses, sentences, or parag
 
 Composition Gate
 - Pass only if every prose artifact passes `$human-writing`'s completion gate after its technical content is final.
+- Pass only if every technical explanation is plain:
+  - Name the concrete thing, what it does, and what changes.
+  - Use words the reader already knows. Keep an exact technical name only when the reader must recognize or use it. Define that name at first use by saying what it does.
+  - Let each sentence explain one step. Keep related ideas together when splitting them would hide their link. Start a new sentence when the explanation moves on.
+  - Keep each claim about how something works within inspected code, documentation, data, or observed output. Mark anything beyond that as uncertain and name the check that would settle it.
 
 ## Compact workflow
 
@@ -77,7 +82,7 @@ Gate
 - Pass only if all six elements are present and exactly in order.
 - Pass only if each heading carries one job that answers a new reader question and directly supports the claim.
 
-## Stage 5 - Mechanism (150-250 words)
+## Stage 5 - Mechanism
 
 Artifact
 - Familiar anchor.
@@ -92,7 +97,7 @@ Gate
 - Pass only if exactly one changed operation is defined.
 - Pass only if causal capability is explicit from before to after.
 - Pass only if boundary is explicit.
-- Pass only if mechanism length is between 150 and 250 words.
+- Pass only if the mechanism is no longer than 250 words.
 
 ## Stage 6 - Three progressive examples
 
